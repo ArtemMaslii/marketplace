@@ -1,67 +1,70 @@
-import React, { useState } from "react";
-import { Helmet } from "react-helmet";
+import {useState} from "react";
 
-import "./loginStyles.scss";
-import duck from "../../../resources/img/tealmarket-logo.png";
+import duck from "../../../resources/img/Oragne-duck.png";
+import "./login.scss";
+import {Link} from "react-router-dom";
 
 const LoginPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleLogin = () => {
+    const handleLogin = (e) => {
+        e.preventDefault();
         console.log(email, password);
     };
 
     return (
         <div className="login-background">
-            <Helmet>
-                <meta
-                    name="description"
-                    content="Login"
-                />
-                <title>Login</title>
-            </Helmet>
-            <div className="container login-container">
-                <div className="row">
-                    <div className="col-md-6 offset-4 login-box position-relative">
-                        <img className='duck-logo'  src={duck} alt="Duck logo"/>
-                        <div className="sign-in-header">Sign in</div>
-                        <form>
-                            <div className="form-group">
-                                <input
-                                    type="email"
-                                    className="form-control"
-                                    placeholder="Email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                />
-                            </div>
-                            <div className="form-group">
-                                <input
-                                    type="password"
-                                    className="form-control"
-                                    placeholder="Password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                />
-                            </div>
-                            <button
-                                type="button"
-                                className="btn btn-primary btn-block"
-                                onClick={handleLogin}
-                            >
-                                Sign in
-                            </button>
-                            <button
-                                type="button"
-                                className="btn btn-secondary btn-block"
-                                onClick={() => console.log("register")}
-                            >
-                                Create new account
-                            </button>
-                        </form>
-                    </div>
+            <div className="gradient-container d-flex align-items-center justify-content-center flex-column">
+                <div className="animated-logo">
+                    <img src={duck} alt="Duck logo"/>
                 </div>
+                <div className="animated-span">
+                    <h2>Teal Market</h2>
+                    <h3>Splash of Unique!</h3>
+                    <h5>Start purchase now!</h5>
+                </div>
+            </div>
+            <div className="container login-container">
+                    <div className="d-flex flex-column align-items-center justify-content-center h-100">
+                        <div className="wrapper">
+                            <div className="logo">
+                                <img src={duck} alt="Duck logo"/>
+                            </div>
+                            <div className="text-center mt-4 sign-in">
+                                Sign in
+                            </div>
+                            <form className="p-3 mt-3">
+                                <div className="form-field d-flex align-items-center">
+                                    <input
+                                        type="text"
+                                        name="email"
+                                        id="email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        placeholder="Email"
+                                    />
+                                </div>
+                                <div className="form-field d-flex align-items-center">
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        id="pwd"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        placeholder="Password"
+                                    />
+                                </div>
+                                <button
+                                    className="btn mt-3"
+                                    onClick={handleLogin}
+                                >Login</button>
+                            </form>
+                            <div className="text-center fs-6">
+                                <Link to="#">Forget password?</Link> or <Link to="/">Sign up</Link>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
     );

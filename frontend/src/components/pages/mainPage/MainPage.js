@@ -14,7 +14,7 @@ const MainPage = () => {
                     />
                     <title>TealMarket</title>
                 </Helmet>
-                <div className="container ">
+                <div >
 
                 </div>
             </div>

@@ -1,8 +1,14 @@
-import LoginPage from "./pages/loginPages/LoginPage";
-import RegisterPage from "./pages/loginPages/RegisterPage";
+import { BrowserRouter } from 'react-router-dom';
+
+import PageContent from './PageContent';
+import "./App.css";
 
 const App = () => {
-    return <LoginPage/>
-}
+    return (
+        <BrowserRouter>
+            <PageContent />
+        </BrowserRouter>
+    );
+};
 
 export default App;
